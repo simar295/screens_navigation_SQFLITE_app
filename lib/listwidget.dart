@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:screens_navigation_list_app/sheet.dart';
 import 'package:screens_navigation_list_app/sheet2.dart';
 import '/listmodel.dart';
 import 'dbhelper.dart';
@@ -27,7 +26,7 @@ class _listwidgetState extends State<listwidget> {
   ////////////////////////////////////////////////////
   void updateui() {
     setState(() {
-    isloading = false;
+      isloading = false;
     });
 
     Future.delayed(Duration(seconds: 2), () {
@@ -46,21 +45,6 @@ class _listwidgetState extends State<listwidget> {
     var rows = allrows.elementAt(index);
     var id = await dbhelp.deletedata(rows["id"]);
     print(id);
-
-    /*   var allrows = await dbhelp.queryall();
-     allrows.forEach((element) async {
-      if (element.values.elementAt(1) == nameslist[index].name) {
-       var id2= await dbhelp.deletedata(element.values.elementAt(1));
-         print(id2);
-      }
-    });
-    */
-    /* allrows.forEach(
-      (element) async {
-        var id = await dbhelp.deletedata(element["id"]);
-        print(id);
-      },
-    ); */
   }
 
 //////////////////////////////////////////////////
@@ -79,15 +63,6 @@ class _listwidgetState extends State<listwidget> {
     sendindex = index;
     ////////////////////////////
   }
-
-/* 
-  listwidget givelistwidget() {
-    return listwidget(
-        nameslist: nameslist,
-        getdelete: getdelete,
-        addhere: addhere,
-        passqueryall: passqueryall);
-  } */
 
   @override
   Widget build(BuildContext context) {
@@ -116,16 +91,9 @@ class _listwidgetState extends State<listwidget> {
                           context: context,
                           builder: (context) => sheet2(
                                 getupdateui: updateui,
-                                getlistwidget: listwidget(
-                                    nameslist: widget.nameslist,
-                                    getdelete: widget.getdelete,
-                                    addhere: widget.addhere,
-                                    passqueryall: widget.passqueryall),
                                 getlistsheet2: widget.nameslist,
-                                getqueryall: widget.passqueryall,
                                 getindex: sendindex,
                                 gettitle: sendtitle,
-                                getsavefunction: widget.addhere,
                               ));
                     },
                     title: Text(widget.nameslist[index].name)),

@@ -11,7 +11,6 @@ class sheet extends StatefulWidget {
 }
 
 class _sheetState extends State<sheet> {
-
   final dbhelp = dbhelper.instance;
 
   void insertdata() async {
@@ -31,21 +30,6 @@ class _sheetState extends State<sheet> {
         print(element);
       },
     );
-  }
-
-  void queryspecific() async {
-    var allrows = await dbhelp.queryspecific(18);
-    print(allrows);
-  }
-
-  void deletedata() async {
-    var id = await dbhelp.deletedata(7);
-    print(id);
-  }
-
-  void update() async {
-   // var rows = await dbhelp.update(1);
-   // print(rows);
   }
 
   ///////////////////////////////////////////////////////
@@ -78,46 +62,6 @@ class _sheetState extends State<sheet> {
             label: Text("save")),
 
 //////////////////////////////////////////////////////////
-
-        SizedBox(
-          height: 15,
-        ),
-        ElevatedButton(
-          onPressed: insertdata,
-          child: Text("insert"),
-          style: ButtonStyle(),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        ElevatedButton(
-          onPressed: queryall,
-          child: Text("query"),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        ElevatedButton(
-          onPressed: queryspecific,
-          child: Text("query specific"),
-        ),
-        SizedBox(
-          height: 0,
-        ),
-        ElevatedButton(
-          onPressed: update,
-          child: Text("update"),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        ElevatedButton(
-          onPressed: deletedata,
-          child: Text("delete"),
-        ),
-        SizedBox(
-          height: 10,
-        ),
       ],
     );
   }
